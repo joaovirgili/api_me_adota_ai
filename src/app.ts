@@ -1,12 +1,13 @@
 import express from "express";
 import { Connection, MysqlError } from "mysql";
 import bodyParser from "body-parser";
+var cors = require('cors')
 
 const db: Connection = require("./service/mysql.ts");
 
 const app: express.Application = express();
 const port = 5000;
-
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
